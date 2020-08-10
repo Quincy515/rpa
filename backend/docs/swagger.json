@@ -1,0 +1,302 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {},
+        "license": {}
+    },
+    "paths": {
+        "/api/v1/audio": {
+            "post": {
+                "description": "可以把上传的图片文件进行文字识别、文字处理、语音合成返回MP3文件",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "audio"
+                ],
+                "summary": "图片识别语音播报",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "文件名",
+                        "name": "fileName",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Bearer ***",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "code\": 1000, \"message\": \"success\", \"data\": { \"uri\": \"\"} }",
+                        "schema": {
+                            "$ref": "#/definitions/controller.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/email-login": {
+            "post": {
+                "description": "通过邮箱密码进行登录",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "accounts"
+                ],
+                "summary": "邮箱登录",
+                "parameters": [
+                    {
+                        "description": "需要提交的登录信息",
+                        "name": "account",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.AccountByEmail"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "code\": 1000, \"message\": \"success\", \"data\": null }",
+                        "schema": {
+                            "$ref": "#/definitions/controller.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/email-register": {
+            "post": {
+                "description": "通过邮箱创建新用户",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "accounts"
+                ],
+                "summary": "邮箱注册",
+                "parameters": [
+                    {
+                        "description": "需要提交的注册信息",
+                        "name": "account",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.AccountByEmail"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "code\": 1000, \"message\": \"success\", \"data\": null }",
+                        "schema": {
+                            "$ref": "#/definitions/controller.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/mini-login": {
+            "post": {
+                "description": "微信小程序的注册登录逻辑",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "accounts"
+                ],
+                "summary": "微信小程序注册登录",
+                "parameters": [
+                    {
+                        "description": "微信小程序注册登录请求转结构体",
+                        "name": "account",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.MiniAccount"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "code\": 1000, \"message\": \"success\", \"data\": null }",
+                        "schema": {
+                            "$ref": "#/definitions/controller.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/mini-logout": {
+            "get": {
+                "description": "清除session缓存",
+                "tags": [
+                    "accounts"
+                ],
+                "summary": "登出",
+                "responses": {
+                    "200": {}
+                }
+            }
+        },
+        "/api/v1/u/mini-user": {
+            "post": {
+                "description": "更新用户信息",
+                "tags": [
+                    "accounts"
+                ],
+                "summary": "微信小程序用户授权",
+                "parameters": [
+                    {
+                        "description": "微信小程序注册登录请求转结构体",
+                        "name": "account",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.MiniAccount"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "code\": 1000, \"message\": \"success\", \"data\": model.Account }",
+                        "schema": {
+                            "$ref": "#/definitions/controller.ResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/upload": {
+            "post": {
+                "description": "可以上传图片、视频文件",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "file"
+                ],
+                "summary": "上传文件",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "文件",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Bearer ***",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "code\": 1000, \"message\": \"success\", \"data\": { \"uri\": \"\"} }",
+                        "schema": {
+                            "$ref": "#/definitions/controller.ResponseData"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "controller.ResponseData": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "业务状态码",
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "数据",
+                    "type": "object"
+                },
+                "message": {
+                    "description": "提示信息",
+                    "type": "string"
+                }
+            }
+        },
+        "model.AccountByEmail": {
+            "type": "object",
+            "properties": {
+                "confirm_password": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.MiniAccount": {
+            "type": "object",
+            "properties": {
+                "ip": {
+                    "type": "string"
+                },
+                "js_code": {
+                    "type": "string"
+                },
+                "mobile": {
+                    "type": "string"
+                },
+                "userInfo": {
+                    "type": "object",
+                    "properties": {
+                        "avatarURL": {
+                            "type": "string"
+                        },
+                        "city": {
+                            "type": "string"
+                        },
+                        "country": {
+                            "type": "string"
+                        },
+                        "gender": {
+                            "type": "integer"
+                        },
+                        "language": {
+                            "type": "string"
+                        },
+                        "nickName": {
+                            "type": "string"
+                        },
+                        "province": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

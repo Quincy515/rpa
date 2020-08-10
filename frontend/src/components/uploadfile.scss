@@ -1,0 +1,155 @@
+.uploadfile-components{
+    width:100%;
+    // height: 100vh;
+    position: relative;
+    padding: 20px;
+    .progress{
+        width: 94%;
+        height: 42px;
+        position: absolute;
+        left: 3%;
+        top:21px;
+        z-index: 88;
+    }
+    .show-progress{
+       display: block;
+    }
+    .hidden-progress{
+        display: none;
+    }
+    .uploadfile-content{
+        .img-item-warp{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            .img-warp{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                overflow: hidden;
+                width: 100vw;
+                height: 100vw;
+                .img-item{
+                    width: 100%;
+                    height: auto;
+                    min-height: 100vw;
+                }
+            }
+            .conforim-img{
+                width:100%;
+                height: 68px;
+                line-height: 68px;
+                font-size: 22px;
+                text-align: center;
+                background-color: #336633;
+                color: #fff;
+                border-radius: 8px;
+                margin-top: 20px;
+            }
+            .icon-btn-warp{
+                width: 42px;
+                height: 42px;
+                line-height: 42px;
+                position: absolute;
+                right: 8px;
+                top: 8px;
+                .icon-btn{
+                    width: 42px;
+                    height: 42px;
+                    line-height: 42px;
+                }
+            }
+
+        }
+        .file-item-warp{
+            width: 100%;
+            height: 42px;
+            line-height: 42px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            .icon-btn{
+                height: 42px;
+                line-height: 42px;
+            }
+            .uploadfile-name{
+                height: 42px;
+                line-height: 42px;
+                font-size: 20px;
+                color: #336633;
+                margin-left: 22px;
+                margin-right: 130px;
+            }
+            .close-icon-btn{
+                flex: 1;
+                width: 42px;
+                height: 42px;
+                line-height: 42px;
+                text-align: right;
+                margin-right: 20px;                
+            }
+        }
+    }
+    .btn-warp{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        &.btn-warp-hidden{
+            display: none;
+        }
+        &.btn-warp-show{
+            display: block;
+        }
+        .upload-img-btn{
+            width: 220px;
+            height: 220px;
+            line-height: 220px;
+            text-align: center;
+            position: relative;
+            background-color: #336633;
+            border-radius: 14px;
+            overflow: hidden;
+            .upload-icon{
+                width: 220px;
+                height: 220px;
+                display: block;
+                line-height: 220px;
+                font-size: 48px;
+                color: #fff;
+                text-align: center;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+        .upload-file-btn{
+            width: 120px;
+            height: 52px;
+            line-height: 38px;
+            text-align: center;
+            position: relative;
+            background-color: #336633;
+            border-radius: 14px;
+            overflow: hidden;
+            .upload-icon{
+                display: block;
+                width: 120px;
+                height: 52px;
+                line-height: 52px;
+                font-size: 22px;
+                color: #fff;
+                text-align: center;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+    .uploadfile-ipt{
+        position: absolute;
+        top: -1220px;
+        left: 0;
+    }
+}
